@@ -1,7 +1,7 @@
 {
-  "name": "webpack-bp",
+  "name": "to-do-list",
   "version": "1.0.0",
-  "description": "",
+  "description": "To do list app",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "start": "webpack server --open"
   },
   "keywords": [],
-  "author": "",
+  "author": "Aqurds",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^6.8.1",
