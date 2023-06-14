@@ -1,8 +1,3 @@
-import _ from "lodash";
-import "./style.css";
-
-console.log("Hello, from Webpack!");
-
 const todo_task = [
   {
     index: 1,
