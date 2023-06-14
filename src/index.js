@@ -1,3 +1,5 @@
+import "./style.css";
+
 const todoTask = [
   {
     index: 1,
@@ -20,7 +22,7 @@ class ToDo {
   completeTodoContainer = "";
 
   insertTodo(singleTodo) {
-    this.complete_todo_container += `
+    this.completeTodoContainer += `
       <article class="single-todo">
         <input type="checkbox" name=${singleTodo.index} class="checkbox-todo"/>
         <p class="description-todo">${singleTodo.description}</p>
@@ -32,10 +34,10 @@ class ToDo {
   showTodo() {
     this.todo_list.forEach((element) => {
       this.insertTodo(element);
-
-      const targetElem = document.querySelector(this.wrapper_elem);
-      targetElem.innerHTML = this.complete_todo_container;
     });
+    console.log(this.completeTodoContainer);
+    const targetElem = document.querySelector(this.wrapper_elem);
+    targetElem.innerHTML = this.completeTodoContainer;
   }
 
   run() {
