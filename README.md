@@ -17,7 +17,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
+    <!-- - [🚀 Live Demo](#live-demo) -->
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -51,18 +51,18 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Add book with author name**
-- **Show added book list**
-- **Remove book from the list**
-- **Get book list from local storage, so data is persistence**
+- **Add to do**
+- **Remove to do**
+- **Mark to do as completed**
+- **Remove all completed**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🚀 Live Demo <a name="live-demo"></a>
+<!-- ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://aqurds.github.io/mv-bl/)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 <!-- GETTING STARTED -->
 
@@ -119,7 +119,7 @@ Example command:
 
 <!-- AUTHORS -->
 
-## 👤 Authors 1 <a name="authors"></a>
+## 👤 Authors <a name="authors"></a>
 
 👤 Aqurds
 
@@ -127,23 +127,15 @@ Example command:
 - Twitter: [@Aqurds](https://twitter.com/Aqurds)
 - LinkedIn: [omaraqurds](https://linkedin.com/in/omaraqurds)
 
-## 👤 Authors 2 <a name="authors"></a>
-
-👤 Sadaf Daneshgar
-
-- GitHub: [@githubhandle](https://github.com/sadaf-Daneshgar)
-- Twitter: [@twitterhandle](https://twitter.com/SadafDaneshgar)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/sadaf-barekzai-00480a242)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **Interface to read selected book**
-- **Bookmark book**
-- **Review the book**
+- **Add file/image with todo**
+- **Add Google calender with todo**
+- **Auth**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
