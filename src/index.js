@@ -1,4 +1,4 @@
-const todo_task = [
+const todoTask = [
   {
     index: 1,
     description: "Complete one coding challenge",
@@ -12,18 +12,18 @@ const todo_task = [
 ];
 
 class ToDo {
-  constructor(todo, wrapper_elem) {
+  constructor(todo, wrapperElem) {
     this.todo_list = todo;
-    this.wrapper_elem = wrapper_elem;
+    this.wrapper_elem = wrapperElem;
   }
 
-  complete_todo_container = "";
+  completeTodoContainer = "";
 
-  insertTodo(single_todo) {
+  insertTodo(singleTodo) {
     this.complete_todo_container += `
       <article class="single-todo">
-        <input type="checkbox" name=${single_todo.index} class="checkbox-todo"/>
-        <p class="description-todo">${single_todo.description}</p>
+        <input type="checkbox" name=${singleTodo.index} class="checkbox-todo"/>
+        <p class="description-todo">${singleTodo.description}</p>
         <div class="organize-todo">...</div>
       </article>
     `;
@@ -31,12 +31,10 @@ class ToDo {
 
   showTodo() {
     this.todo_list.forEach((element) => {
-      console.log(element);
       this.insertTodo(element);
 
-      const target_elem = document.querySelector(this.wrapper_elem);
-      console.log(target_elem);
-      target_elem.innerHTML = this.complete_todo_container;
+      const targetElem = document.querySelector(this.wrapper_elem);
+      targetElem.innerHTML = this.complete_todo_container;
     });
   }
 
@@ -45,5 +43,5 @@ class ToDo {
   }
 }
 
-const todo = new ToDo(todo_task, ".show-todo");
+const todo = new ToDo(todoTask, ".show-todo");
 todo.run();

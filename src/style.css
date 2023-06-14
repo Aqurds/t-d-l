@@ -47,6 +47,7 @@ body {
 #clear-todo {
   text-align: center;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .checkbox-todo {
