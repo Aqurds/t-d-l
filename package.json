@@ -13,6 +13,10 @@
   "author": "Aqurds",
   "license": "ISC",
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "css-loader": "^6.8.1",
     "html-webpack-plugin": "^5.5.3",
     "style-loader": "^3.3.3",
@@ -21,6 +25,13 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "@babel/core": "^7.22.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^9.1.2",
+    "file-loader": "^6.2.0",
+    "font-awesome": "^4.7.0",
+    "lodash": "^4.17.21",
+    "node-sass": "^9.0.0",
+    "sass-loader": "^13.3.2"
   }
 }

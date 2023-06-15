@@ -28,6 +28,11 @@ body {
   padding-left: 20px;
 }
 
+#input-todo:focus {
+  outline: none;
+  background-color: bisque;
+}
+
 .show-todo {
   display: flex;
   flex-direction: column;
@@ -44,6 +49,10 @@ body {
   border-bottom: 1px solid lightgrey;
 }
 
+.single-todo:focus {
+  background-color: bisque;
+}
+
 #clear-todo {
   text-align: center;
   cursor: pointer;
@@ -58,6 +67,7 @@ body {
 .description-todo {
   text-align: left;
   margin-left: 20px;
+  cursor: pointer;
 }
 
 .organize-todo {
@@ -65,4 +75,55 @@ body {
   top: 10px;
   right: 20px;
   cursor: row-resize;
+}
+
+.todo-show-box {
+  position: relative;
+  width: 340px;
+}
+
+.edit-todo-input {
+  font-style: italic;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  height: 49px;
+  padding-left: 20px;
+  background-color: bisque;
+  color: darkolivegreen;
+  z-index: 9;
+  display: none;
+}
+
+.edit-todo-input::after {
+  content: "delete";
+}
+
+.edit-todo-input:focus {
+  outline: none;
+}
+
+.color-class {
+  background-color: bisque;
+}
+
+.todo-delete {
+  display: none;
+}
+
+.todo-delete-icon {
+  position: absolute;
+  top: 17px;
+  right: 5px;
+  z-index: 10;
+  cursor: pointer;
+  color: lightcoral;
+  transition: all 0.3s;
+}
+
+.todo-delete-icon:hover {
+  box-shadow: 0px 0px 2px 8px rgba(0, 0, 0, 0.1);
 }
