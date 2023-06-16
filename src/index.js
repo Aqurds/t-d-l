@@ -1,12 +1,13 @@
 import "./style.css";
+import StorageData from "./modules/localStorage.js";
 
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
 import { faCheck } from "@fortawesome/free-solid-svg-icons/faCheck";
 import { faTrash } from "@fortawesome/free-solid-svg-icons/faTrash";
 import "@fortawesome/free-brands-svg-icons";
+
 library.add(faCheck);
 library.add(faTrash);
-import StorageData from "./modules/localStorage.js";
 
 dom.watch();
 
