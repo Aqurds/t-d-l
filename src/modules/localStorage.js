@@ -61,7 +61,7 @@ export default class toDoStorage {
 
     currentTodoData.forEach((element) => {
       if (parseInt(element.index) === parseInt(index)) {
-        console.log(element);
+        // console.log(element);
         element.task = todoData;
       }
     });
@@ -77,20 +77,29 @@ export default class toDoStorage {
     const currentTodoData = JSON.parse(
       localStorage.getItem(this.localStorageObjectName)
     );
+    // console.log(currentTodoData, "current data")
 
     const newTodo = [];
+    let newIndex = 1;
 
-    for (let i = 1; i < currentTodoData.length; i++) {
-      if (currentTodoData[i] != todoIndex) {
+    if (currentTodoData.length == 1) {
+      localStorage.removeItem(this.localStorageObjectName);
+      return;
+    }
+    
+    for (let i = 0; i < currentTodoData.length; i++) {
+      console.log(currentTodoData[i])
+      if (parseInt(currentTodoData[i].index) != parseInt(todoIndex)) {
         newTodo.push({
-          index: i,
+          index: newIndex,
           task: currentTodoData[i].task,
           completed: currentTodoData[i].completed,
         });
+        newIndex += 1;
       }
     }
 
-    console.log(newTodo.length);
+    // console.log(newTodo.length);
     if (!newTodo.length) {
       localStorage.removeItem(this.localStorageObjectName);
     } else {

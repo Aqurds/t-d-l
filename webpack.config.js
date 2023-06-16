@@ -22,15 +22,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-react"],
-          },
-        },
-      },
-      {
         test: /\.(sass|scss|css)$/i,
         use: ["style-loader", "css-loader", "sass-loader"],
       },

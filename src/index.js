@@ -11,6 +11,18 @@ dom.watch();
 
 const localStorage = new StorageData();
 
+const delTodo = () => {
+  let doc = document.querySelectorAll('.todo-delete');
+  doc.forEach(elem => {
+    elem.addEventListener('click', e => {
+      const parentElem = elem.parentNode;
+      const todoIndex = parentElem.getElementsByClassName("edit-todo-input")[0].dataset.index;
+      localStorage.deleteLocalStorageData(todoIndex);
+      todo.showTodo();
+    })
+  })
+}
+// delTodo();
 class ToDo {
   constructor(wrapperElem) {
     this.wrapperElem = wrapperElem;
@@ -41,17 +53,18 @@ class ToDo {
     if (localStorage.getLocalStorageData()) {
       todoList = localStorage.getLocalStorageData();
     }
-    // console.log(todoList);
     const targetElem = document.querySelector(this.wrapperElem);
     if (todoList.length) {
       this.completeTodoContainer = "";
       todoList.forEach((element) => {
-        // console.log("element", element);
         this.insertTodo(element);
       });
       targetElem.innerHTML = this.completeTodoContainer;
+    } else {
+      targetElem.innerHTML = "";
     }
     this.editTodo();
+    delTodo();
   }
 
   addTodo() {
@@ -61,14 +74,13 @@ class ToDo {
       if (e.key === "Enter") {
         const todoData = todoInputElem.value;
         if (todoData.length) {
-          console.log(todoData);
           localStorage.setLocalStorageData(todoData);
           this.showTodo();
           todoInputElem.value = "";
-          this.editTodo();
         }
       }
     });
+    delTodo();
   }
 
   editTodo() {
@@ -76,18 +88,15 @@ class ToDo {
     const todoInputElem = document.querySelectorAll(".description-todo");
     todoInputElem.forEach((elem) => {
       elem.addEventListener("click", (e) => {
-        console.log("Edit started!");
         const parent = e.target.parentNode;
         const targetElem = parent.getElementsByClassName("edit-todo-input")[0];
         const targetDelElem = parent.getElementsByClassName("todo-delete")[0];
-        console.log(parent, targetElem, targetDelElem);
         targetElem.style.display = "block";
         targetDelElem.style.display = "block";
         const grandParent = parent.parentNode;
         grandParent.classList.add("color-class");
-
         this.updateTodo(targetElem);
-        // this.deleteTodo(parent);
+
       });
     });
   }
@@ -100,29 +109,16 @@ class ToDo {
         if (todoData.length) {
           localStorage.updateLocalStorageData(todoData, elem.dataset.index);
           this.showTodo();
-          this.editTodo();
+          // this.editTodo();
         }
       }
     });
-  }
-
-  deleteTodo(elem) {
-    // Responsible to delete a todo and update data storage & UI
-    const targetElem = elem.getElementsByClassName("todo-delete")[0];
-    targetElem.addEventListener("click", (e) => {
-      const parentElem = e.target.parentNode;
-      const delIndex =
-        elem.getElementsByClassName("edit-todo-input")[0].dataset.index;
-      localStorage.deleteLocalStorageData(delIndex);
-    });
-    this.showTodo();
   }
 
   run() {
     // Responsible to trigger the method to start todo class
     this.showTodo();
     this.addTodo();
-    // this.editTodo();
   }
 }
 
