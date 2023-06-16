@@ -59,7 +59,6 @@ export default class toDoStorage {
 
     currentTodoData.forEach((element) => {
       if (parseInt(element.index, 10) === parseInt(index, 10)) {
-        // console.log(element);
         element.task = todoData;
       }
     });
