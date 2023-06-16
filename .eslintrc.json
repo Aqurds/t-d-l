@@ -35,7 +35,8 @@
       "ignoreMemberSort": true,
       "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
       "allowSeparatedGroups": true
-    }]
+    }],
+    "no-var": "off"
   },
   "ignorePatterns": ["dist/", "build/"]
 }

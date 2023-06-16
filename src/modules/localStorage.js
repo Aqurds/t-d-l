@@ -148,16 +148,16 @@ export default class toDoStorage {
 
   clearAllCompletedTodo() {
     // Responsible to clear all completed todo, update data storage
+    var newTodo = [];
     const currentTodoData = JSON.parse(
       localStorage.getItem(this.localStorageObjectName)
     );
 
     // console.log(currentTodoData, 'current todo data')
-    var newTodo = [];
     let newIndex = 1;
     if (currentTodoData) {
-      var newTodo = currentTodoData.filter(elem => elem.completed !== true);
-      console.log(newTodo, 'new todo');
+      newTodo = currentTodoData.filter(elem => elem.completed !== true);
+      // console.log(newTodo, 'new todo');
       let newIndex = 1;
     }
 
@@ -165,7 +165,7 @@ export default class toDoStorage {
       for (let i = 0; i < newTodo.length; i += 1) {
         // console.log(newTodo[i]);
         newTodo[i].index = newIndex;
-        newIndex += 1
+        newIndex += 1;
       }
     }
 
