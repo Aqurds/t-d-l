@@ -107,4 +107,77 @@ export default class toDoStorage {
       );
     }
   }
+
+  markAsReadLocalStorageData(index) {
+    // Responsible to mark todo as read in local storage
+    const currentTodoData = JSON.parse(
+      localStorage.getItem(this.localStorageObjectName)
+    );
+
+    currentTodoData.forEach((element) => {
+      if (parseInt(element.index, 10) === parseInt(index, 10)) {
+        // console.log(element);
+        element.completed = true;
+      }
+    });
+
+    localStorage.setItem(
+      this.localStorageObjectName,
+      JSON.stringify(currentTodoData)
+    );
+  }
+
+  markAsUnreadLocalStorageData(index) {
+    // Responsible to mark as unread todo in local storage
+    const currentTodoData = JSON.parse(
+      localStorage.getItem(this.localStorageObjectName)
+    );
+
+    currentTodoData.forEach((element) => {
+      if (parseInt(element.index, 10) === parseInt(index, 10)) {
+        // console.log(element);
+        element.completed = false;
+      }
+    });
+
+    localStorage.setItem(
+      this.localStorageObjectName,
+      JSON.stringify(currentTodoData)
+    );
+  }
+
+  clearAllCompletedTodo() {
+    // Responsible to clear all completed todo, update data storage
+    const currentTodoData = JSON.parse(
+      localStorage.getItem(this.localStorageObjectName)
+    );
+
+    const newTodo = [];
+    let newIndex = 1;
+
+    if (currentTodoData) {
+      for (let i = 0; i < currentTodoData.length; i += 1) {
+        // console.log(currentTodoData[i]);
+        if (currentTodoData[i].completed !== true) {
+          newTodo.push({
+            index: newIndex,
+            task: currentTodoData[i].task,
+            completed: currentTodoData[i].completed,
+          });
+          newIndex += 1;
+        }
+      }
+    }
+
+    // console.log(newTodo.length);
+    if (!newTodo.length) {
+      localStorage.removeItem(this.localStorageObjectName);
+    } else {
+      localStorage.setItem(
+        this.localStorageObjectName,
+        JSON.stringify(newTodo)
+      );
+    }
+    // console.log("delete complete")
+  }
 }
