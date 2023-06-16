@@ -1,3 +1,4 @@
+/* eslint-disable import/first */
 import "./style.css";
 
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
