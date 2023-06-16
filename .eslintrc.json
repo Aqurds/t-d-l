@@ -22,13 +22,7 @@
       }
     ],
     "no-unused-vars": "off",
-    "no-use-before-define": [
-      "error",
-      {
-        "functions": false,
-        "class": false
-      }
-    ],
+    "no-use-before-define": "off",
     "no-alert": "off",
     "no-undef": "off",
     "operator-linebreak": "off",
