@@ -7,6 +7,7 @@ import "@fortawesome/free-brands-svg-icons";
 library.add(faCheck);
 library.add(faTrash);
 import StorageData from "./modules/localStorage.js";
+
 dom.watch();
 
 const localStorage = new StorageData();

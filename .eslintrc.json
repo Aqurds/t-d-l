@@ -27,7 +27,8 @@
     "no-undef": "off",
     "operator-linebreak": "off",
     "quotes": "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "no-else-return": "off"
   },
   "ignorePatterns": ["dist/", "build/"]
 }

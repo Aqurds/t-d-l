@@ -59,7 +59,7 @@ export default class toDoStorage {
     );
 
     currentTodoData.forEach((element) => {
-      if (parseInt(element.index) === parseInt(index)) {
+      if (parseInt(element.index, 10) === parseInt(index, 10)) {
         // console.log(element);
         element.task = todoData;
       }
@@ -88,7 +88,7 @@ export default class toDoStorage {
 
     for (let i = 0; i < currentTodoData.length; i += 1) {
       // console.log(currentTodoData[i]);
-      if (parseInt(currentTodoData[i].index) !== parseInt(todoIndex)) {
+      if (parseInt(currentTodoData[i].index, 10) !== parseInt(todoIndex, 10)) {
         newTodo.push({
           index: newIndex,
           task: currentTodoData[i].task,
