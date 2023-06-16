@@ -1,5 +1,4 @@
 export default class toDoStorage {
-  constructor() {}
 
   localStorageObjectName = "aqurdsToDo";
 
@@ -82,14 +81,14 @@ export default class toDoStorage {
     const newTodo = [];
     let newIndex = 1;
 
-    if (currentTodoData.length == 1) {
+    if (currentTodoData.length === 1) {
       localStorage.removeItem(this.localStorageObjectName);
       return;
     }
-    
-    for (let i = 0; i < currentTodoData.length; i++) {
-      console.log(currentTodoData[i])
-      if (parseInt(currentTodoData[i].index) != parseInt(todoIndex)) {
+
+    for (let i = 0; i < currentTodoData.length; i += 1) {
+      // console.log(currentTodoData[i]);
+      if (parseInt(currentTodoData[i].index) !== parseInt(todoIndex)) {
         newTodo.push({
           index: newIndex,
           task: currentTodoData[i].task,

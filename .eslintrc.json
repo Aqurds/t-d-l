@@ -25,7 +25,8 @@
     "no-use-before-define": [
       "error",
       {
-        "functions": false
+        "functions": false,
+        "class": false
       }
     ],
     "no-alert": "off",
