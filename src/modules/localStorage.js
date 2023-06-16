@@ -1,4 +1,5 @@
 export default class toDoStorage {
+
   localStorageObjectName = "aqurdsToDo";
 
   getLocalStorageData() {
