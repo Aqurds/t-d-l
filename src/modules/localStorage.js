@@ -152,20 +152,20 @@ export default class toDoStorage {
       localStorage.getItem(this.localStorageObjectName)
     );
 
-    const newTodo = [];
+    // console.log(currentTodoData, 'current todo data')
+    var newTodo = [];
     let newIndex = 1;
-
     if (currentTodoData) {
-      for (let i = 0; i < currentTodoData.length; i += 1) {
-        // console.log(currentTodoData[i]);
-        if (currentTodoData[i].completed !== true) {
-          newTodo.push({
-            index: newIndex,
-            task: currentTodoData[i].task,
-            completed: currentTodoData[i].completed,
-          });
-          newIndex += 1;
-        }
+      var newTodo = currentTodoData.filter(elem => elem.completed !== true);
+      console.log(newTodo, 'new todo');
+      let newIndex = 1;
+    }
+
+    if (newTodo) {
+      for (let i = 0; i < newTodo.length; i += 1) {
+        // console.log(newTodo[i]);
+        newTodo[i].index = newIndex;
+        newIndex += 1
       }
     }
 
