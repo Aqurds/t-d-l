@@ -35,7 +35,7 @@ const markTodo = () => {
         // console.log("todo checked")
         localStorage.markAsReadLocalStorageData(e.target.value);
         const parent = e.target.parentNode;
-        const targetTodo = parent.getElementsByClassName;('description-todo')[0]
+        const targetTodo = parent.getElementsByClassName('description-todo')[0];
         targetTodo.classList.add('text-cross');
       } else {
         // console.log("todo not checked")
