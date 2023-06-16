@@ -35,25 +35,25 @@ const markTodo = () => {
         // console.log("todo checked")
         localStorage.markAsReadLocalStorageData(e.target.value);
         const parent = e.target.parentNode;
-        const targetTodo = parent.getElementsByClassName('description-todo')[0]
-        targetTodo.classList.add('text-cross')
+        const targetTodo = parent.getElementsByClassName;('description-todo')[0]
+        targetTodo.classList.add('text-cross');
       } else {
         // console.log("todo not checked")
         localStorage.markAsUnreadLocalStorageData(e.target.value);
         const parent = e.target.parentNode;
-        const targetTodo = parent.getElementsByClassName('description-todo')[0]
-        targetTodo.classList.remove('text-cross')
+        const targetTodo = parent.getElementsByClassName('description-todo')[0];
+        targetTodo.classList.remove('text-cross');
       }
-    })
-  })
+    });
+  });
 };
 
 const clearAllCompletedTodo = () => {
   const clearElem = document.getElementById('clear-todo');
   clearElem.addEventListener('click', () => {
-    localStorage.clearAllCompletedTodo()
+    localStorage.clearAllCompletedTodo();
     todo.showTodo();
-  })
+  });
 };
 class ToDo {
   constructor(wrapperElem) {
@@ -65,7 +65,7 @@ class ToDo {
   insertTodo(singleTodo) {
     // Responsible to create the Html wrapper for a single todo for the UI
     const checkTodo = singleTodo.completed ? 'checked' : false;
-    const crossTextClass = singleTodo.completed ? 'text-cross': false;
+    const crossTextClass = singleTodo.completed ? 'text-cross' : false;
     this.completeTodoContainer += `
       <article class="single-todo">
         <input type="checkbox" value=${singleTodo.index} name=${singleTodo.index} class="checkbox-todo" ${checkTodo} />
