@@ -59,7 +59,6 @@ export default class toDoStorage {
 
     currentTodoData.forEach((element) => {
       if (parseInt(element.index, 10) === parseInt(index, 10)) {
-        // console.log(element);
         element.task = todoData;
       }
     });
@@ -106,5 +105,59 @@ export default class toDoStorage {
         JSON.stringify(newTodo)
       );
     }
+  }
+
+  markCheckboxLocalStorageData(index) {
+    // Responsible to mark as unread todo in local storage
+    const currentTodoData = JSON.parse(
+      localStorage.getItem(this.localStorageObjectName)
+    );
+
+    currentTodoData.forEach((element) => {
+      if (parseInt(element.index, 10) === parseInt(index, 10)) {
+        // console.log(element);
+        element.completed = !element.completed;
+      }
+    });
+
+    localStorage.setItem(
+      this.localStorageObjectName,
+      JSON.stringify(currentTodoData)
+    );
+  }
+
+  clearAllCompletedTodo() {
+    // Responsible to clear all completed todo, update data storage
+    var newTodo = [];
+    const currentTodoData = JSON.parse(
+      localStorage.getItem(this.localStorageObjectName)
+    );
+
+    // console.log(currentTodoData, 'current todo data')
+    let newIndex = 1;
+    if (currentTodoData) {
+      newTodo = currentTodoData.filter((elem) => elem.completed !== true);
+      // console.log(newTodo, 'new todo');
+      let newIndex = 1;
+    }
+
+    if (newTodo) {
+      for (let i = 0; i < newTodo.length; i += 1) {
+        // console.log(newTodo[i]);
+        newTodo[i].index = newIndex;
+        newIndex += 1;
+      }
+    }
+
+    // console.log(newTodo.length);
+    if (!newTodo.length) {
+      localStorage.removeItem(this.localStorageObjectName);
+    } else {
+      localStorage.setItem(
+        this.localStorageObjectName,
+        JSON.stringify(newTodo)
+      );
+    }
+    // console.log("delete complete")
   }
 }

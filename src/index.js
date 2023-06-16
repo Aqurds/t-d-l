@@ -26,7 +26,35 @@ const delTodo = () => {
     });
   });
 };
-// delTodo();
+
+const markTodo = () => {
+  const checkBox = document.querySelectorAll('.checkbox-todo');
+  checkBox.forEach((elem) => {
+    elem.addEventListener('click', (e) => {
+      if (e.target.checked) {
+        // console.log("todo checked")
+        localStorage.markCheckboxLocalStorageData(e.target.value);
+        const parent = e.target.parentNode;
+        const targetTodo = parent.getElementsByClassName('description-todo')[0];
+        targetTodo.classList.add('text-cross');
+      } else {
+        // console.log("todo not checked")
+        localStorage.markCheckboxLocalStorageData(e.target.value);
+        const parent = e.target.parentNode;
+        const targetTodo = parent.getElementsByClassName('description-todo')[0];
+        targetTodo.classList.remove('text-cross');
+      }
+    });
+  });
+};
+
+const clearAllCompletedTodo = () => {
+  const clearElem = document.getElementById('clear-todo');
+  clearElem.addEventListener('click', () => {
+    localStorage.clearAllCompletedTodo();
+    todo.showTodo();
+  });
+};
 class ToDo {
   constructor(wrapperElem) {
     this.wrapperElem = wrapperElem;
@@ -36,15 +64,17 @@ class ToDo {
 
   insertTodo(singleTodo) {
     // Responsible to create the Html wrapper for a single todo for the UI
+    const checkTodo = singleTodo.completed ? 'checked' : false;
+    const crossTextClass = singleTodo.completed ? 'text-cross' : false;
     this.completeTodoContainer += `
       <article class="single-todo">
-        <input type="checkbox" name=${singleTodo.index} class="checkbox-todo"/>
+        <input type="checkbox" value=${singleTodo.index} name=${singleTodo.index} class="checkbox-todo" ${checkTodo} />
         <div class="todo-show-box">
           <input type="text" class="edit-todo-input" value="${singleTodo.task}" data-index=${singleTodo.index} autofocus>
           <div class="todo-delete">
             <i class="fa-solid fa-trash todo-delete-icon"></i>
           </div>
-          <p class="description-todo">${singleTodo.task}</p>
+          <p class="description-todo ${crossTextClass}">${singleTodo.task}</p>
         </div>
         <div class="organize-todo">...</div>
       </article>
@@ -58,7 +88,7 @@ class ToDo {
       todoList = localStorage.getLocalStorageData();
     }
     const targetElem = document.querySelector(this.wrapperElem);
-    if (todoList.length) {
+    if (todoList && todoList.length) {
       this.completeTodoContainer = "";
       todoList.forEach((element) => {
         this.insertTodo(element);
@@ -69,6 +99,8 @@ class ToDo {
     }
     this.editTodo();
     delTodo();
+    markTodo();
+    clearAllCompletedTodo();
   }
 
   addTodo() {
