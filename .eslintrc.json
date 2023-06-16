@@ -28,7 +28,8 @@
     "operator-linebreak": "off",
     "quotes": "off",
     "comma-dangle": "off",
-    "no-else-return": "off"
+    "no-else-return": "off",
+    "sort-imports": "off"
   },
   "ignorePatterns": ["dist/", "build/"]
 }
