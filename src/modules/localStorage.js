@@ -156,7 +156,7 @@ export default class toDoStorage {
     // console.log(currentTodoData, 'current todo data')
     let newIndex = 1;
     if (currentTodoData) {
-      newTodo = currentTodoData.filter(elem => elem.completed !== true);
+      newTodo = currentTodoData.filter((elem) => elem.completed !== true);
       // console.log(newTodo, 'new todo');
       let newIndex = 1;
     }
