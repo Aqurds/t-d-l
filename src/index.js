@@ -33,13 +33,13 @@ const markTodo = () => {
     elem.addEventListener('click', (e) => {
       if (e.target.checked) {
         // console.log("todo checked")
-        localStorage.markAsReadLocalStorageData(e.target.value);
+        localStorage.markCheckboxLocalStorageData(e.target.value);
         const parent = e.target.parentNode;
         const targetTodo = parent.getElementsByClassName('description-todo')[0];
         targetTodo.classList.add('text-cross');
       } else {
         // console.log("todo not checked")
-        localStorage.markAsUnreadLocalStorageData(e.target.value);
+        localStorage.markCheckboxLocalStorageData(e.target.value);
         const parent = e.target.parentNode;
         const targetTodo = parent.getElementsByClassName('description-todo')[0];
         targetTodo.classList.remove('text-cross');

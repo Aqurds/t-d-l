@@ -108,26 +108,7 @@ export default class toDoStorage {
     }
   }
 
-  markAsReadLocalStorageData(index) {
-    // Responsible to mark todo as read in local storage
-    const currentTodoData = JSON.parse(
-      localStorage.getItem(this.localStorageObjectName)
-    );
-
-    currentTodoData.forEach((element) => {
-      if (parseInt(element.index, 10) === parseInt(index, 10)) {
-        // console.log(element);
-        element.completed = true;
-      }
-    });
-
-    localStorage.setItem(
-      this.localStorageObjectName,
-      JSON.stringify(currentTodoData)
-    );
-  }
-
-  markAsUnreadLocalStorageData(index) {
+  markCheckboxLocalStorageData(index) {
     // Responsible to mark as unread todo in local storage
     const currentTodoData = JSON.parse(
       localStorage.getItem(this.localStorageObjectName)
@@ -136,7 +117,7 @@ export default class toDoStorage {
     currentTodoData.forEach((element) => {
       if (parseInt(element.index, 10) === parseInt(index, 10)) {
         // console.log(element);
-        element.completed = false;
+        element.completed = !element.completed;
       }
     });
 
